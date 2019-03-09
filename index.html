@@ -1,0 +1,50 @@
+<script src="https://www.typingdna.com/scripts/typingdna.js"></script>
+<script>
+                var tdna = new TypingDNA(500);
+                tdna.addTarget("inputfield1");
+                var tp1 = "";
+                var tp2 = "";
+
+                function getTypingPatterns() {
+                    if (document.getElementById("inputfield1").value != "") {
+                        document.getElementById("tps").style.display = "block";
+                        var tp1 = tdna.getTypingPattern({type:0, length:150});
+                        var tp2 = tdna.getTypingPattern({type:1});
+                        var tp3 = tdna.getTypingPattern({type:2});
+                        document.getElementById("tp1").innerHTML = tp1;
+                        document.getElementById("tp2").innerHTML = tp2;
+                        document.getElementById("tp3").innerHTML = tp3;
+                    }
+                }
+
+                function resetTypingDNA() {
+                    TypingDNA.reset();
+                    resetFields();
+                    document.getElementById("inputfield1").value = "";
+                    document.getElementById("tps").style.display = "none";
+                }
+
+                function resetFields() {
+                    document.getElementById("tp1").innerHTML = "";
+                    document.getElementById("tp2").innerHTML = "";
+                    document.getElementById("tp3").innerHTML = "";
+                }
+            </script><br /><br />
+<div class="container" style="max-width:700px">
+                <br>
+                <h4>Enter some text below</h4>
+                <div id="input1" class="step">
+                    <textarea rows="2" cols="100" class="form-control" id="inputfield1"></textarea>
+                </div>
+                <br>
+                <a href="javascript:getTypingPatterns()" class="btn btn-cta btn-cta-third" style="font-size: 15px;" role="button">Get Typing Patterns</a>&nbsp;&nbsp;&nbsp;<a href="javascript:resetTypingDNA();">Reset</a>
+                <br>
+                <div id="tps" style="display:none">
+                    <br> <strong>Sametext pattern (type: 1)</strong>
+                    <p id="tp2" style="word-wrap:break-word;"></p>
+                    <br> <strong>Anytext pattern (type: 0)</strong>
+                    <p id="tp1" style="word-wrap:break-word;"></p>
+                    <br> <strong>Extended pattern (type: 2)</strong>
+                    <p id="tp3" style="word-wrap:break-word;"></p>
+                </div>
+            </div>
